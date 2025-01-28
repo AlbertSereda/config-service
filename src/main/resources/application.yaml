@@ -1,1 +1,18 @@
-spring.application.name=config-service
+spring:
+  application:
+    name: config-service
+
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${DISCOVERY_SERVICE_URL:http://discovery-service:8761/eureka/}
+    register-with-eureka: true
+    fetch-registry: false
+  instance:
+    prefer-ip-address: true
