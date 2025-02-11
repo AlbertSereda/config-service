@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:1111/postgres
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: classpath:db/changelog/liquibase-master.yaml
+    enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    oauth2:
+      client:
+        registration:
+          all-in-market:
+            client-id: ${OAUTH2_CLIENT_ID:clientId}
+            client-secret: ${OAUTH2_CLIENT_SECRET:secret}
+            authorization-grant-type: ${OAUTH2_CLIENT_GRANT_TYPE:client_credentials}
+            client-authentication-method: ${OAUTH2_CLIENT_AUTH_METHOD:client_secret_basic}
+        provider:
+          all-in-market:
+            token-uri: ${OAUTH2_CLIENT_TOKEN_URI:http://localhost:7070/oauth2/token}

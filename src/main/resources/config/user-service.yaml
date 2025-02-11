@@ -3,15 +3,3 @@ spring:
     url: jdbc:postgresql://${PG_DB_HOST:postgresdb}:${PG_DB_PORT:5432}/${POSTGRES_DB_USER_SERVICE:user_service_db}
     username: ${PG_DB_USERNAME_USER_SERVICE:user_service}
     password: ${PG_DB_PASS_USER_SERVICE:user_service}
-    driver-class-name: org.postgresql.Driver
-  liquibase:
-    change-log: classpath:db/changelog/liquibase-master.yaml
-    enabled: true
-  jpa:
-    hibernate:
-      ddl-auto: none
-    show-sql: false
-    open-in-view: false
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
