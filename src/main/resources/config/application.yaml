@@ -27,3 +27,11 @@ spring:
         provider:
           all-in-market:
             token-uri: ${OAUTH2_CLIENT_TOKEN_URI:http://localhost:7070/oauth2/token}
+  kafka:
+    bootstrap-servers: kafka:9092
+    topics:
+      category-changed: ${KAFKA_TOPIC_CATEGORY_CHANGED:category_changed}
+      category-attribute-changed: ${KAFKA_TOPIC_CATEGORY_ATTRIBUTE_CHANGED:category_attribute_changed}
+      registration-success: ${KAFKA_TOPIC_REGISTRATION_SUCCESS:registration_success}
+      status-order-changed: ${KAFKA_TOPIC_STATUS_ORDER_CHANGED:status_order_changed}
+      status-payment-changed: ${KAFKA_TOPIC_STATUS_PAYMENT_CHANGED:status_payment_changed}
